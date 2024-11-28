@@ -28,12 +28,12 @@ function CourseCard({ course }) {
   const waitingsound = () => {
     const audio = new Audio("/assets/audio/waiting.mp3");
     audio.volume = 0.3;
-    return audio;
+    audio.play();
   };
 
   const handleGenerate = async () => {
     setLoading(true);
-    loading ? waitingsound().play : waitingsound().pause();
+    waitingsound();
     setProgressBarVal(0); // Reset progress
     handleProgress(); // Start progress bar
 

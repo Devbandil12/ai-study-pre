@@ -40,9 +40,10 @@ export default function Home() {
         {/* Header */}
         <header className="flex shadow-lg p-5 justify-between px-5 items-center">
           <div className="flex gap-1 items-center">
-            <img src="/logo.svg" alt="Logo" className="w-10 h-10" />
+            <img src="/logo.svg" alt="Logo" className="w-10 h-10 hover:rotate-6" />
             <h2 className="text-xl font-bold">Make It Easy</h2>
           </div>
+        
           <Link href={"/dashboard"}>
             <Button>Dashboard</Button>
           </Link>

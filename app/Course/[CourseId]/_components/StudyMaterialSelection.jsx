@@ -5,6 +5,7 @@ import axios from "axios";
 
 function StudyMaterialSelection({ course }) {
   const [studyTypeContent, setStudyTypeContent] = useState();
+  const [isCardVisible, setIsCardVisible] = useState(true);
 
   const materialList = [
     {
@@ -53,8 +54,8 @@ function StudyMaterialSelection({ course }) {
       {materialList.map((materail, index) => {
         return (
           <MaterailCard
-            course={course}
             key={index}
+            course={course}
             data={materail}
             studytype={studyTypeContent}
           />
