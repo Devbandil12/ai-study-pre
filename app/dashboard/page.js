@@ -27,7 +27,7 @@ function Page() {
     setIsLoading(true); // Set loading state
     try {
       setCourseData([]);
-      const response = await axios.post("/api/user-courses", {
+      const response = await axios.post(process.env.NEXT_PUBLIC_API_URL+"/api/user-courses", {
         createBy: user?.primaryEmailAddress?.emailAddress,
       });
       setCourseData(response.data.res || []);

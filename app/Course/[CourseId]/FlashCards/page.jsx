@@ -25,7 +25,7 @@ function Page() {
   const fetchFlashCards = async () => {
     try {
       const res = await axios.get(
-        `/api/Generate-FlashCard?contentType=FlashCard&CourseId=${CourseId}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Generate-FlashCard?contentType=FlashCard&CourseId=${CourseId}`
       );
       const data = JSON.parse(
         res.data.res[0].content.replace("```json", "").replace("```", "")

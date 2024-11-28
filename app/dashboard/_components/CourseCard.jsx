@@ -33,7 +33,10 @@ function CourseCard({ course }) {
     handleProgress(); // Start progress bar
 
     try {
-      const res = await axios.post("/api/Generate-Chapters", { course });
+      const res = await axios.post(
+        process.env.NEXT_PUBLIC_API_URL + "/api/Generate-Chapters",
+        { course }
+      );
 
       setProgressBarVal(100);
       setRefresh(true);

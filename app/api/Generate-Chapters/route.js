@@ -5,15 +5,6 @@ import { GenerateCourse } from "@/configs/AiModel";
 import { eq } from "drizzle-orm";
 
 
-const gen=async(course)=>{
-   
-   console.log(result)
-     
-   
-      
-    
-    
-}
 
 export async function POST(req) {
   const { course } = await req.json();

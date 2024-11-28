@@ -11,7 +11,7 @@ function Page() {
   const [stepComplete, setStepComplete] = useState(0);
   const [quizContent, setQuizContent] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
- 
+
   useEffect(() => {
     if (CourseId) getQuiz();
   }, [CourseId]);
@@ -20,7 +20,7 @@ function Page() {
   const getQuiz = async () => {
     try {
       const res = await axios.get(
-        `/api/Generate-FlashCard?contentType=Quiz&CourseId=${CourseId}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Generate-FlashCard?contentType=Quiz&CourseId=${CourseId}`
       );
       const data = JSON.parse(
         res.data.res[0].content.replace("```json", "").replace("```", "")

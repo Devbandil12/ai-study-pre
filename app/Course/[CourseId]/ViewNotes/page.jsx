@@ -15,10 +15,13 @@ function ViewNotes() {
   }, []);
 
   const getnotes = async () => {
-    const result = await axios.post("/api/Study-Material", {
-      courseId: CourseId,
-      StudyType: "Notes",
-    });
+    const result = await axios.post(
+      process.env.NEXT_PUBLIC_API_URL + "/api/Study-Material",
+      {
+        courseId: CourseId,
+        StudyType: "Notes",
+      }
+    );
 
     // const data = await JSON.parse(result?.data);
 

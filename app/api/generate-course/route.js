@@ -1,7 +1,7 @@
 import { GenerateCourse } from "@/configs/AiModel";
 import { db } from "@/configs/db";
 import { Course_table } from "@/configs/schema";
-import axios from "axios";
+
 
 import { NextResponse } from "next/server";
 
