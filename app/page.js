@@ -50,7 +50,7 @@ export default function Home() {
         </header>
 
         {/* Main Content */}
-        <main className="pt-20 px-10">
+        <main className="pt-20 px-10 pb-10">
           {/* Responsive Container */}
           <motion.div
             className="flex flex-col gap-10 md:flex-row md:justify-between md:items-center px-8"
