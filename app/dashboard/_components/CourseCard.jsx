@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 function CourseCard({ course }) {
+  const [refresh, setRefresh] = useState(false);
   const [progressBarVal, setProgressBarVal] = useState(0);
   const [loading, setLoading] = useState(false);
   let intervalId = null;
@@ -25,26 +26,23 @@ function CourseCard({ course }) {
     }, 500); // Update every 500ms
   };
 
-  const waitingsound = () => {
-    const audio = new Audio("/assets/audio/waiting.mp3");
-    audio.volume = 0.3;
-    audio.play();
-  };
-
   const handleGenerate = async () => {
     setLoading(true);
-    waitingsound();
+
     setProgressBarVal(0); // Reset progress
     handleProgress(); // Start progress bar
 
     try {
       const res = await axios.post("/api/Generate-Chapters", { course });
-      console.log(res);
-      setProgressBarVal(100); // Complete progress bar
+
+      setProgressBarVal(100);
+      setRefresh(true);
+      // Complete progress bar
     } catch (error) {
       console.error("Error generating chapters:", error);
     } finally {
       setLoading(false);
+
       clearInterval(intervalId); // Ensure interval is cleared
     }
   };
@@ -82,7 +80,7 @@ function CourseCard({ course }) {
         <div className="flex justify-end mt-3">
           {course.status === "Generating" ? (
             <Button
-              disabled={loading}
+              disabled={loading || refresh}
               onClick={handleGenerate}
               className={`text-sm rounded-full ${loading && "bg-slate-400"}`}
             >
@@ -91,6 +89,8 @@ function CourseCard({ course }) {
                   <RefreshCcw className="animate-spin" />
                   Generating...
                 </>
+              ) : refresh ? (
+                "Refresh the Page"
               ) : (
                 "Generate"
               )}

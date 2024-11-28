@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import DashboardHeader from "../dashboard/_components/DashboardHeader";
 
 function page() {
+  const [error, setError] = useState(false)
   const [state, setState] = useState(0);
   const [formaData, setFormaData] = useState([])
   const [loading, setLoading] = useState(false)
@@ -27,17 +28,23 @@ const router =useRouter()
 const submitToAi=async()=>{
   const CourseID=uuidv4()
   setLoading(true)
-loading?waitingsound().play():waitingsound().pause()
+
+ try {
   const res=await axios.post("/api/generate-course",{
 
     CourseID:CourseID,
     ...formaData,
-    createBy:user?.primaryEmailAddress.emailAddress
+    createBy:user?.primaryEmailAddress?.emailAddress
   
   });
-console.log(res);
+
 setLoading(false)
 router.replace("/dashboard")
+ } catch (error) {
+   
+  setError(true)
+  
+ }
 }
 
   const HandleInput = (fieldName, Value) => {
@@ -54,6 +61,12 @@ router.replace("/dashboard")
     <>
     <DashboardHeader option={true}/>
     <div className="flex flex-col  items-center  mt-20">
+    {
+      error&&  <div className="bg-red-500 rounded-2xl p-3 ">
+
+      something went wrong please try again
+            </div>
+    }
       <h2 className="text-3xl text-primary font-semibold mb-3">
         Start Building your Personal Study Material👀
       </h2>

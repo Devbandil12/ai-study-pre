@@ -11,7 +11,8 @@ import Link from "next/link";
 
 function Page() {
   const [courseData, setCourseData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Loading state
+  const [isLoading, setIsLoading] = useState(true); 
+  
   const { user } = useUser();
 
   useEffect(() => {
@@ -47,8 +48,8 @@ function Page() {
         <h2 className="text-xl font-bold hover:underline transition-all">
           Your Courses
         </h2>
-        <Button onClick={fetchCourses} variant="outline">
-          <RefreshCcw />
+        <Button onClick={fetchCourses} variant="outline" >
+          <RefreshCcw  />
           Refresh
         </Button>
       </div>
@@ -91,7 +92,7 @@ function Page() {
                 key={index}
                 className="m-2 rounded-lg shadow-lg border"
               >
-                <CourseCard course={course} />
+                <CourseCard course={course} setbutton={(value)=>setReefresh(value)}/>
               </div>
             ))}
           </div>

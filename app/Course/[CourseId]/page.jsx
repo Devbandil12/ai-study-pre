@@ -20,7 +20,7 @@ function page() {
     setCourse(result.data.result);
   };
   return (
-    <div className=" md:mx-36 lg:mx-60 mt-8 rounded-2xl p-3">
+    <div>
       <div>
         <CourseIntroCard course={course} />
         <h2 className="mt-5 text-lg font-bold">Study Materail 👀</h2>
