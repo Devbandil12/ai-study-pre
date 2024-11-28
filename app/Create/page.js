@@ -30,7 +30,7 @@ const submitToAi=async()=>{
   setLoading(true)
 
  try {
-  const res=await axios.post(process.env.NEXT_PUBLIC_API_URL+"/api/generate-course",{
+  const res=await axios.post("/api/generate-course",{
 
     CourseID:CourseID,
     ...formaData,

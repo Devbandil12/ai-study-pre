@@ -16,9 +16,7 @@ function page() {
   }, [CourseId]);
 
   const getcourse = async () => {
-    const result = await axios.get(
-      process.env.NEXT_PUBLIC_API_URL + "/api/user-courses?CourseId=" + CourseId
-    );
+    const result = await axios.get("/api/user-courses?CourseId=" + CourseId);
     setCourse(result.data.result);
   };
   return (

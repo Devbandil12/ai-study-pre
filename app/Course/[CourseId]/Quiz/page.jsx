@@ -20,7 +20,7 @@ function Page() {
   const getQuiz = async () => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/Generate-FlashCard?contentType=Quiz&CourseId=${CourseId}`
+        `/api/Generate-FlashCard?contentType=Quiz&CourseId=${CourseId}`
       );
       const data = JSON.parse(
         res.data.res[0].content.replace("```json", "").replace("```", "")

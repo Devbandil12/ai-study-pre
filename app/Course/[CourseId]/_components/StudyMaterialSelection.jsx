@@ -42,13 +42,10 @@ function StudyMaterialSelection({ course }) {
     course && getdata();
   }, [course]);
   const getdata = async () => {
-    const res = await axios.post(
-      process.env.NEXT_PUBLIC_API_URL + "/api/Study-Material",
-      {
-        courseId: course?.CourseID,
-        StudyType: "ALL",
-      }
-    );
+    const res = await axios.post("/api/Study-Material", {
+      courseId: course?.CourseID,
+      StudyType: "ALL",
+    });
     // console.log(res.data);
     setStudyTypeContent(res.data);
   };

@@ -19,13 +19,10 @@ function MaterailCard({ data, studytype, course }) {
     setLoading(true);
     waitingsound();
 
-    const res = await axios.post(
-      process.env.NEXT_PUBLIC_API_URL + "/api/Generate-FlashCard",
-      {
-        type: data?.type,
-        course: course,
-      }
-    );
+    const res = await axios.post("/api/Generate-FlashCard", {
+      type: data?.type,
+      course: course,
+    });
     setRefresh(true);
 
     setLoading(false);
