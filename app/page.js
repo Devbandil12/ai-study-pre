@@ -102,6 +102,7 @@ export default function Home() {
         <span className="text-xs bg-primary rounded-2xl px-3 py-1.5 text-white font-medium">
           Mail
         </span>{" "}
+       
         Devbandil120@gmail.com
       </motion.h2>
       <motion.div
