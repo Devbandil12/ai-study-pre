@@ -9,13 +9,6 @@ function StudyMaterialSelection({ course }) {
 
   const materialList = [
     {
-      name: "Notes/Chapters",
-      icon: "/notes.png",
-      desc: "Read it To prepare Notes",
-      type: "Notes",
-      path: "/ViewNotes",
-    },
-    {
       name: "FlashCards",
       icon: "/flashcards.png",
       desc: "Learn with flashcards and keep it remeber",
@@ -35,6 +28,13 @@ function StudyMaterialSelection({ course }) {
       desc: "Lets Have A QNA, what do you Think..?",
       type: "QNA",
       path: "/QNA",
+    },
+    {
+      name: "Matching Pairs",
+      icon: "/matching.png",
+      desc: "Learn with Matchings and easy Peasy Learning",
+      type: "Matching",
+      path: "/Matching",
     },
   ];
 

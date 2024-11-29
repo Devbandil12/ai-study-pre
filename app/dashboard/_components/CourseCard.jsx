@@ -78,28 +78,9 @@ function CourseCard({ course }) {
 
         {/* Generate or View Button */}
         <div className="flex justify-end mt-3">
-          {course.status === "Generating" ? (
-            <Button
-              disabled={loading || refresh}
-              onClick={handleGenerate}
-              className={`text-sm rounded-full ${loading && "bg-slate-400"}`}
-            >
-              {loading ? (
-                <>
-                  <RefreshCcw className="animate-spin" />
-                  Generating...
-                </>
-              ) : refresh ? (
-                "Refresh the Page"
-              ) : (
-                "Generate"
-              )}
-            </Button>
-          ) : (
-            <Link href={`/Course/${course?.CourseID}`}>
-              <Button>View</Button>
-            </Link>
-          )}
+          <Link href={`/Course/${course?.CourseID}`}>
+            <Button>View</Button>
+          </Link>
         </div>
       </div>
     </div>

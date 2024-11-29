@@ -24,8 +24,9 @@ export const Course_table=pgTable("course",{
 export const Notes_Table=pgTable("Notestable",{
   id:serial().primaryKey(),
   CourseID:varchar().notNull(),
-  chapterId:integer().notNull(),
+  chapterId:varchar().notNull(),
   notes:json(),
+  
 })
 export const Flash_Card_Content=pgTable("flashCardtable",{
   id:serial().primaryKey(),
@@ -33,4 +34,12 @@ export const Flash_Card_Content=pgTable("flashCardtable",{
   content:json(),
   type:varchar().notNull(),
   status:varchar().default("Generating")
+})
+
+export const Chapters_Table=pgTable("chaptertable",{
+  id:serial().primaryKey(),
+  CourseID:varchar().notNull(),
+  chapterId:varchar().notNull(),
+  notes:json(),
+   chapterTitle:varchar().notNull()
 })
