@@ -55,7 +55,7 @@ function CourseCard({ course }) {
   }, []);
 
   return (
-    <div className="p-3 ">
+    <div className="p-3 bg-gray-800 rounded-lg shadow-lg transition-all hover:scale-105 hover:shadow-xl ">
       <div>
         {/* Course Header */}
         <div className="flex justify-between gap-5 items-center mb-3">
@@ -69,7 +69,7 @@ function CourseCard({ course }) {
 
         {/* Course Information */}
         <h2 className="font-bold uppercase">{course.topic}</h2>
-        <h3 className="text-sm line-clamp-2 text-gray-700 mb-1">
+        <h3 className="text-sm line-clamp-2 text-gray-400 mb-1">
           {course.courseLayout.courseSummary}
         </h3>
 

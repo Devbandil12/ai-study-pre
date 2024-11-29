@@ -64,76 +64,78 @@ function Page() {
 
   return (
     quizContent && (
-      <div>
-        <header className="text-3xl text-center font-bold text-primary">
-          Quiz Competition
-        </header>
+      <div className="h-screen">
+        <div>
+          <header className="text-3xl text-center font-bold text-primary">
+            Quiz Competition
+          </header>
 
-        {/* Progress Bar */}
-        <div className="flex justify-center items-center gap-3 pt-5">
-          {stepComplete > 0 && (
-            <Button
-              variant="outline"
-              onClick={() => setStepComplete((prev) => prev - 1)}
-            >
-              Prev
-            </Button>
-          )}
+          {/* Progress Bar */}
+          <div className="flex justify-center items-center gap-3 pt-5">
+            {stepComplete > 0 && (
+              <Button
+                variant="outline"
+                onClick={() => setStepComplete((prev) => prev - 1)}
+              >
+                Prev
+              </Button>
+            )}
 
-          {quizContent.quiz.map((_, index) => (
-            <div
-              key={index}
-              className={`h-2 w-5 rounded-2xl px-1 ${
-                index < stepComplete ? "bg-blue-600" : "bg-slate-300"
-              }`}
-            ></div>
-          ))}
+            {quizContent.quiz.map((_, index) => (
+              <div
+                key={index}
+                className={`h-2 w-5 rounded-2xl px-1 ${
+                  index < stepComplete ? "bg-blue-600" : "bg-slate-300"
+                }`}
+              ></div>
+            ))}
 
-          {stepComplete < quizContent.quiz.length - 1 && (
-            <Button onClick={() => setStepComplete((prev) => prev + 1)}>
-              Next
-            </Button>
-          )}
-        </div>
-
-        {/* Quiz Question */}
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-5">
-            Q.{quizContent?.quiz[stepComplete]?.question}
-          </h2>
-
-          {/* Quiz Options */}
-          <div className="grid font-bold grid-cols-1 md:grid-cols-2 gap-5">
-            {quizContent?.quiz[stepComplete]?.options?.map(
-              (optionValue, index) => (
-                <h2
-                  key={index}
-                  onClick={() => handleClick(optionValue)}
-                  className={`w-full cursor-pointer shadow-md p-3 border text-center hover:bg-primary hover:text-white rounded-xl ${
-                    option === optionValue ? "bg-primary text-white" : ""
-                  }`}
-                >
-                  {optionValue}
-                </h2>
-              )
+            {stepComplete < quizContent.quiz.length - 1 && (
+              <Button onClick={() => setStepComplete((prev) => prev + 1)}>
+                Next
+              </Button>
             )}
           </div>
-        </div>
 
-        {/* Feedback Message */}
-        {isCorrect !== null && (
-          <div
-            className={`mt-5 p-5 text-center font-bold text-xl rounded-3xl border shadow-lg ${
-              isCorrect
-                ? "bg-green-400 animate-pulse border-green-600"
-                : "bg-red-400 animate-pulse border-red-500"
-            }`}
-          >
-            {isCorrect
-              ? "Correct!"
-              : "Incorrect!" + quizContent?.quiz[stepComplete]?.answer}
+          {/* Quiz Question */}
+          <div className="mt-10">
+            <h2 className="text-xl text-slate-200 font-semibold mb-5">
+              Q.{quizContent?.quiz[stepComplete]?.question}
+            </h2>
+
+            {/* Quiz Options */}
+            <div className="grid font-bold grid-cols-1 md:grid-cols-2 gap-5">
+              {quizContent?.quiz[stepComplete]?.options?.map(
+                (optionValue, index) => (
+                  <h2
+                    key={index}
+                    onClick={() => handleClick(optionValue)}
+                    className={`w-full text-slate-200 cursor-pointer shadow-md p-3 border text-center hover:bg-primary hover:text-white rounded-xl ${
+                      option === optionValue ? "bg-primary text-white" : ""
+                    }`}
+                  >
+                    {optionValue}
+                  </h2>
+                )
+              )}
+            </div>
           </div>
-        )}
+
+          {/* Feedback Message */}
+          {isCorrect !== null && (
+            <div
+              className={`mt-5 p-5 text-center font-bold text-xl rounded-3xl border shadow-lg ${
+                isCorrect
+                  ? "bg-green-400 animate-pulse border-green-600"
+                  : "bg-red-400 animate-pulse border-red-500"
+              }`}
+            >
+              {isCorrect
+                ? "Correct!"
+                : "Incorrect!" + quizContent?.quiz[stepComplete]?.answer}
+            </div>
+          )}
+        </div>
       </div>
     )
   );

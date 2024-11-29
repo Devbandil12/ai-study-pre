@@ -8,6 +8,11 @@ module.exports = {
   ],
   theme: {
   	extend: {
+		colors: {
+			softBlack: '#0d0d0d',  // Near black
+			charcoal: '#1a1a1a',  // Dark charcoal gray
+			ashGray: '#2a2a2a',   // Soft gray
+		  },
 		borderWidth: {
 			'custom-dash': '3px',
 		  },

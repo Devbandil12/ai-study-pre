@@ -16,6 +16,7 @@ function Chapters({ chapter, data }) {
     (item) => item.chapterTitle === chapter?.chapterTitle
   );
 
+  // Handle chapter generation
   const handleChapterGenerate = async () => {
     setIsloading(true);
     const res = await axios.post("/api/Generate-Chapters", {
@@ -28,29 +29,39 @@ function Chapters({ chapter, data }) {
   };
 
   return (
-    <div className="p-3 cursor-pointer flex gap-5 justify-between items-center shadow-md border rounded-2xl">
-      <h2 className="text-xl">{chapter.emoji}</h2>
-      <div>
-        <h2 className="font-bold text-sm line-clamp-2">
+    <div className="p-4 flex gap-6 items-start justify-between shadow-lg border rounded-xl bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900">
+      <div className="flex flex-col items-start">
+        <h2 className="text-3xl">{chapter.emoji}</h2>
+        <h3 className="font-bold text-white text-lg mt-2 line-clamp-2">
           {chapter?.chapterTitle}
-        </h2>
-        <h2 className="text-gray-500 font-medium text-sm line-clamp-2">
+        </h3>
+        <p className="text-sm text-gray-400 font-medium mt-1 line-clamp-2">
           {chapter?.summary}
-        </h2>
-        <Progress />
+        </p>
+
+        <div className="mt-4 w-full">
+          <Progress value={isloading ? 50 : 100} />{" "}
+          {/* Example progress value */}
+        </div>
       </div>
-      {isChapterAvailable || result == "success" ? (
-        <Link href={"/Course/" + CourseId + "/" + chapter?.chapterTitle}>
-          <Button>View</Button>
-        </Link>
-      ) : (
-        <Button
-          onClick={handleChapterGenerate}
-          disabled={isloading || isChapterAvailable}
-        >
-          {isloading ? "Generating..." : "Generate"}
-        </Button>
-      )}
+
+      {/* Button Section */}
+      <div className="flex flex-col items-center justify-center">
+        {isChapterAvailable || result === "success" ? (
+          <Link href={`/Course/${CourseId}/${chapter?.chapterTitle}`}>
+            {" "}
+            <Button className="w-full mt-2">View</Button>
+          </Link>
+        ) : (
+          <Button
+            onClick={handleChapterGenerate}
+            disabled={isloading || isChapterAvailable}
+            className="w-full mt-2"
+          >
+            {isloading ? "Generating..." : "Generate"}
+          </Button>
+        )}
+      </div>
     </div>
   );
 }

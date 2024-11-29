@@ -35,22 +35,65 @@ export default function Home() {
   };
 
   return (
-    <>
-      <div>
+ 
+      <div className="bg-gradient-to-b from-black via-gray-900 to-gray-800 h-screen">
         {/* Header */}
-        <header className="flex shadow-lg p-5 justify-between px-5 items-center">
-          <div className="flex gap-1 items-center">
-            <img src="/logo.svg" alt="Logo" className="w-10 h-10 hover:rotate-6" />
-            <h2 className="text-xl font-bold">Make It Easy</h2>
-          </div>
-        
-          <Link href={"/dashboard"}>
-            <Button>Dashboard</Button>
-          </Link>
-        </header>
+        <motion.header
+      className="flex shadow-lg border-b-[1px] p-5 justify-between px-5 items-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      {/* Logo Section */}
+      <motion.div
+        className="flex gap-2 items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+      >
+        <motion.img
+          src="/logo.svg"
+          alt="Logo"
+          className="w-10 h-10"
+          whileHover={{
+            rotate: 10,
+            scale: 1.1,
+            transition: { type: "spring", stiffness: 300 },
+          }}
+        />
+        <motion.h2
+          className="text-xl text-white font-bold"
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          Make It Easy
+        </motion.h2>
+      </motion.div>
+
+      {/* Button Section */}
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <Link href={"/dashboard"}>
+          <motion.div
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.3)",
+            }}
+          >
+            <Button className="hover:bg-white hover:text-gray-900 transition duration-300">
+              Dashboard
+            </Button>
+          </motion.div>
+        </Link>
+      </motion.div>
+    </motion.header>
 
         {/* Main Content */}
-        <main className="pt-20 px-10 pb-10">
+        <main className="pt-20  px-10 pb-10">
           {/* Responsive Container */}
           <motion.div
             className="flex flex-col gap-10 md:flex-row md:justify-between md:items-center px-8"
@@ -68,7 +111,7 @@ export default function Home() {
                   <img
                     src="/cuteanime.jpg"
                     alt="Front side"
-                    className="w-32 md:w-40 -rotate-12"
+                    className="w-32 md:w-40 rounded-2xl -rotate-12"
                   />
                 </div>
                 {/* Back Side */}
@@ -76,7 +119,7 @@ export default function Home() {
                   <img
                     src="/animecode.jpg"
                     alt="Back side"
-                    className="w-32 md:w-40 -rotate-12"
+                    className="w-32 md:w-40 rounded-2xl -rotate-12"
                   />
                 </div>
               </ReactCardFlip>
@@ -115,11 +158,11 @@ export default function Home() {
     </motion.div>
   
 
-             <div className="leading-tight">
-             <h2 className="font-extrabold text-3xl md:text-5xl">
+             <div className="leading-tight text-center">
+             <h2 className="font-extrabold text-3xl md:text-5xl text-white">
                 AI-Powered <strong className="text-primary">Exam Prep</strong>
               </h2>
-              <h2 className="font-black text-3xl md:text-5xl">
+              <h2 className="font-extrabold text-3xl text-white md:text-5xl">
                 Material Generator
               </h2>
              
@@ -141,7 +184,7 @@ export default function Home() {
                   <img
                     src="/cuteanime.jpg"
                     alt="Front side"
-                    className="w-32 md:w-40 -rotate-12"
+                    className="w-32 md:w-40 rounded-2xl -rotate-12"
                   />
                 </div>
                 {/* Back Side */}
@@ -149,7 +192,7 @@ export default function Home() {
                   <img
                     src="/animecode.jpg"
                     alt="Back side"
-                    className="w-32 md:w-40 -rotate-12"
+                    className="w-32 md:w-40 rounded-2xl -rotate-12"
                   />
                 </div>
               </ReactCardFlip>
@@ -173,6 +216,6 @@ export default function Home() {
           </motion.div>
         </main>
       </div>
-    </>
+   
   );
 }

@@ -11,8 +11,8 @@ import Link from "next/link";
 
 function Page() {
   const [courseData, setCourseData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
-  
+  const [isLoading, setIsLoading] = useState(true);
+
   const { user } = useUser();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function Page() {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-black min-h-screen text-gray-100">
       {/* Welcome Component */}
       <Welcome />
 
@@ -48,8 +48,12 @@ function Page() {
         <h2 className="text-xl font-bold hover:underline transition-all">
           Your Courses
         </h2>
-        <Button onClick={fetchCourses} variant="outline" >
-          <RefreshCcw  />
+        <Button
+          onClick={fetchCourses}
+          variant="outline"
+          className="flex items-center gap-2 bg-gray-700 text-gray-100 hover:bg-gray-600"
+        >
+          <RefreshCcw />
           Refresh
         </Button>
       </div>
@@ -57,7 +61,7 @@ function Page() {
       {/* Create New Button (Mobile Only) */}
       <div className="flex justify-center items-center mt-5 md:hidden">
         <Link href="/Create">
-          <div className="w-40 border-custom-dash rounded-xl p-5 border-dashed border-gray-400 text-center">
+          <div className="w-40 border-dashed rounded-xl p-5 border-gray-500 text-center hover:bg-gray-700 hover:text-gray-100 transition-all">
             <h2 className="text-lg font-bold text-primary">+ Create New</h2>
           </div>
         </Link>
@@ -71,15 +75,15 @@ function Page() {
             {[...Array(6)].map((_, index) => (
               <div
                 key={index}
-                className="h-40 rounded-lg shadow-md animate-pulse bg-slate-300"
+                className="h-40 rounded-lg shadow-md animate-pulse bg-gray-700"
               ></div>
             ))}
           </div>
         ) : courseData.length === 0 ? (
           // No Courses Found
-          <div className="flex justify-center pl-[40%] hidden md:block items-center mt-28">
+          <div className="flex justify-center items-center mt-28">
             <Link href="/Create">
-              <Button variant="outline" className="p-5 w-40">
+              <Button variant="outline" className="p-5 w-40 border-gray-500 hover:bg-gray-700 hover:text-gray-100">
                 + Create New
               </Button>
             </Link>
@@ -90,9 +94,9 @@ function Page() {
             {courseData.map((course, index) => (
               <div
                 key={index}
-                className="m-2 rounded-lg shadow-lg border"
+                className="m-2 rounded-lg shadow-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 transition-all"
               >
-                <CourseCard course={course} setbutton={(value)=>setReefresh(value)}/>
+                <CourseCard course={course} />
               </div>
             ))}
           </div>

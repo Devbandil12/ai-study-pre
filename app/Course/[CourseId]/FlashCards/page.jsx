@@ -49,7 +49,7 @@ function Page() {
   };
   return (
     <div>
-      <header>
+      <header className="text-white">
         <h2 className="text-xl font-bold">FlashCards</h2>
         <p className="font-medium">
           FlashCards: These will help you remember concepts more effectively.

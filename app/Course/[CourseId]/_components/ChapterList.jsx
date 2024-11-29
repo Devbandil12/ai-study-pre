@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Chapters from "./Chapters";
 import axios from "axios";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 function ChapterList({ course }) {
   const [data, setData] = useState();
@@ -30,7 +31,7 @@ function ChapterList({ course }) {
       {data?.map((val, ind) => console.log(val.chapterTitle))}
       {CHAPTERS.length > 0 ? (
         CHAPTERS.map((chapter, ind) => (
-          <div key={ind}>
+          <div className="my-3" key={ind}>
             <Chapters chapter={chapter} data={data} />
           </div>
         ))

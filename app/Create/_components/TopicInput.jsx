@@ -10,22 +10,24 @@ import {
 
 function TopicInput({ setTopic, setDefficulty }) {
   return (
-    <div className="w-full mt-10">
-      <h2 className="font-semibold">
+    <div className="w-full ">
+      <h2 className="font-semibold mt-3">
         Write or Paste your topic or details to Create the Study Material and
         Also Select the difficulty Level{" "}
       </h2>
       <Textarea
         placeholder="Write Here"
-        className="bg-slate-100 p-3 mt-2 text-2xl font-bold"
+        className="bg-transparent text-white p-3  mt-2 text-2xl "
         onChange={(event) => setTopic(event.target.value)}
       />
-      <h2>select the Detailing Level</h2>
+      <h2 className="mt-3 text-start font-semibold">
+        select the Detailing Level
+      </h2>
       <Select
-        className="w-full"
+        className="w-full text-black"
         onValueChange={(value) => setDefficulty(value)}
       >
-        <SelectTrigger className="w-full mt-2 bg-slate-100 font-bold">
+        <SelectTrigger className="w-full mt-2 bg-slate-400 text-black font-bold">
           <SelectValue placeholder="Defficulty" />
         </SelectTrigger>
         <SelectContent>

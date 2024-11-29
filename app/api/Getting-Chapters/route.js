@@ -17,7 +17,10 @@ export async function GET(req) {
     const reqURL=req.url;
     const {searchParams}=new URL(reqURL)
     const courseId=searchParams?.get("CourseId")
+
+    
     const res= await db.select({ chapterTitle: Chapters_Table.chapterTitle }).from(Chapters_Table).where((eq(Chapters_Table?.CourseID,courseId)));
+   console.log(res)
     return NextResponse.json({res:res})
   
 }
