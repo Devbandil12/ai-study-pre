@@ -10,6 +10,7 @@ import { useUser } from "@clerk/nextjs";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 import DashboardHeader from "../dashboard/_components/DashboardHeader";
+import { Progress } from "@/components/ui/progress";
 
 function Page() {
   const [error, setError] = useState(false);
@@ -57,13 +58,18 @@ function Page() {
       <div className="shadow-lg ">
         <DashboardHeader option={true} />
       </div>
+     
+     
       <div className="flex h-screen flex-col items-center p-10 text-center bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white">
+       <div className="w-1/2 mb-5">
+       <Progress value={(state/2)*100} className="shadow-sm shadow-white h-5"/>
+       </div>
         {error && (
           <div className="bg-red-500 rounded-2xl p-3 ">
             Something went wrong, please try again.
           </div>
         )}
-       
+      
         <div>
           {state == 0 ? (
             <ChooseOption

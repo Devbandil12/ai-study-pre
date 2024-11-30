@@ -6,10 +6,10 @@ function Welcome() {
   const { user } = useUser();
 
   return (
-    <div className="pr-2 p-3">
+    <div className=" p-2">
       <div className="w-[95%] ml-5 shadow-lg rounded-lg p-5 flex items-center text-white font-bold transition-transform hover:scale-[1.02] hover:shadow-lg bg-gradient-to-b from-gray-900 to-gray-800 border border-gray-700">
         {/* Content Container */}
-        <div className="rounded-lg w-full flex items-center p-5 shadow-inner">
+        <div className="rounded-lg w-full p-5 shadow-inner md:flex items-center ">
           <img
             src="/pc.png"
             alt="laptop"

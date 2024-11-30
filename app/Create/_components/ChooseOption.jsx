@@ -12,8 +12,8 @@ function ChooseOption({ selectedStudyMaterial }) {
       icon: "/job.png",
     },
     {
-      name: "Code",
-      icon: "/code.png",
+      name: "Coding Pratice",
+      icon: "/coding practice.png",
     },
     {
       name: "Course",

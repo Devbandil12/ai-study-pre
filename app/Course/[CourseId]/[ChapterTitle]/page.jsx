@@ -61,10 +61,12 @@ function page() {
                   className="text-slate-200"
                   dangerouslySetInnerHTML={{ __html: items?.content }}
                 />
-                <div
-                  className=" bg-slate-300 rounded-lg p-3 mt-3"
-                  dangerouslySetInnerHTML={{ __html: items?.example }}
-                />
+                {items?.example && (
+                  <div
+                    className=" bg-slate-300 rounded-lg p-3 mt-3"
+                    dangerouslySetInnerHTML={{ __html: items?.example }}
+                  />
+                )}
               </div>
             );
           })

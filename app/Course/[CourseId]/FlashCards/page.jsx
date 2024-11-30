@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useParams } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import FlashCardItem from "./_components/FlashCardItem";
 import { Loader2 } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
 
 function Page() {
   const { CourseId } = useParams();
@@ -48,10 +49,10 @@ function Page() {
     sound.play();
   };
   return (
-    <div>
+    <div className="h-screen p-5">
       <header className="text-white">
-        <h2 className="text-xl font-bold">FlashCards</h2>
-        <p className="font-medium">
+        <h2 className="text-xl font-bold text-center ">FlashCards</h2>
+        <p className="font-medium text-center text-sm">
           FlashCards: These will help you remember concepts more effectively.
         </p>
       </header>

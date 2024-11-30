@@ -31,7 +31,7 @@ function Page() {
     }
   };
   const handlewrongsound = () => {
-    const audio = new Audio("/assets/audio/sword.mp3");
+    const audio = new Audio("/assets/audio/wrong.mp3");
     audio.volume = 0.3;
     audio.play();
   };
@@ -59,12 +59,12 @@ function Page() {
       setIsCorrect(null);
       setOption("");
       setStepComplete((prev) => prev + 1);
-    }, 2000);
+    }, 3000);
   };
 
   return (
-    quizContent && (
-      <div className="h-screen">
+    <div className="h-screen">
+      {quizContent ? (
         <div>
           <header className="text-3xl text-center font-bold text-primary">
             Quiz Competition
@@ -130,14 +130,28 @@ function Page() {
                   : "bg-red-400 animate-pulse border-red-500"
               }`}
             >
-              {isCorrect
-                ? "Correct!"
-                : "Incorrect!" + quizContent?.quiz[stepComplete]?.answer}
+              {isCorrect ? (
+                "Correct!"
+              ) : (
+                <>
+                  <h2>Incorrect!</h2>
+                  <h3 className="font-medium text-lg">
+                    the Correct Answer is :{" "}
+                    {quizContent?.quiz[stepComplete]?.answer}
+                  </h3>
+                </>
+              )}
             </div>
           )}
         </div>
-      </div>
-    )
+      ) : (
+        <>
+          <div className="flex justify-center items-center mt-10">
+            <img src="/logo.svg" alt="" className="w-16 animate-spin" />
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

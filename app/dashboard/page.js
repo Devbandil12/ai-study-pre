@@ -83,7 +83,7 @@ function Page() {
           // No Courses Found
           <div className="flex justify-center items-center mt-28">
             <Link href="/Create">
-              <Button variant="outline" className="p-5 w-40 border-gray-500 hover:bg-gray-700 hover:text-gray-100">
+              <Button variant="outline" className="p-5 w-40 text-black border-gray-500 hover:bg-gray-700 hover:text-gray-100">
                 + Create New
               </Button>
             </Link>

@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
  
-      <div className="bg-gradient-to-b from-black via-gray-900 to-gray-800 h-screen">
+      <div className="bg-gradient-to-b w-full pb-10 from-black via-gray-900 to-gray-800 h-screen">
         {/* Header */}
         <motion.header
       className="flex shadow-lg border-b-[1px] p-5 justify-between px-5 items-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
@@ -93,7 +93,7 @@ export default function Home() {
     </motion.header>
 
         {/* Main Content */}
-        <main className="pt-20  px-10 pb-10">
+        <main className="pt-20  px-10 ">
           {/* Responsive Container */}
           <motion.div
             className="flex flex-col gap-10 md:flex-row md:justify-between md:items-center px-8"
@@ -130,8 +130,9 @@ export default function Home() {
               className="text-center md:text-left flex flex-col items-center md:items-start gap-4"
               variants={textVariant}
             >
-              <motion.div
-      className="rounded-full cursor-pointer text-xs p-1 flex items-center justify-center gap-2 bg-slate-300"
+            <div className="hidden md:block">
+            <motion.div
+      className="rounded-full  cursor-pointer text-xs p-1 flex items-center justify-center gap-2 bg-slate-300"
       initial={{ scale: 1 }}
       whileHover={{ scale: 1.1 }} // Slight zoom on hover
       transition={{ duration: 0.3 }}
@@ -156,11 +157,13 @@ export default function Home() {
         <Mail className="w-4" />
       </motion.div>
     </motion.div>
+
+            </div>
   
 
              <div className="leading-tight text-center">
              <h2 className="font-extrabold text-3xl md:text-5xl text-white">
-                AI-Powered <strong className="text-primary">Exam Prep</strong>
+                AI-Powered <strong className="text-primary font-bold">Exam Prep</strong>
               </h2>
               <h2 className="font-extrabold text-3xl text-white md:text-5xl">
                 Material Generator
@@ -175,7 +178,7 @@ export default function Home() {
 
             {/* Right Flip Card */}
             <motion.div
-              className="flex justify-center md:justify-end"
+              className="flex justify-center hidden md:block md:justify-end"
               variants={cardVariant}
             >
               <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
@@ -209,9 +212,9 @@ export default function Home() {
             </Button></Link>
             <Button
               variant="outline"
-              className="flex items-center gap-2 w-full md:w-auto"
+              className="flex items-center mt-5 md:mt-0  gap-2  md:w-auto"
             >
-              <Video className="fill-black" /> Watch Tutorial
+              <Video className=" fill-black" /> Watch Tutorial
             </Button>
           </motion.div>
         </main>

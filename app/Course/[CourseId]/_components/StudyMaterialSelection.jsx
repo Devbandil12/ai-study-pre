@@ -10,14 +10,14 @@ function StudyMaterialSelection({ course }) {
   const materialList = [
     {
       name: "FlashCards",
-      icon: "/flashcards.png",
+      icon: "/flash-card.png",
       desc: "Learn with flashcards and keep it remeber",
       type: "FlashCard",
       path: "/FlashCards",
     },
     {
       name: "Quizz",
-      icon: "/Quizz.png",
+      icon: "/quizzz.png",
       desc: "Enough Learning, Are You Ready For Quizz.!",
       type: "Quiz",
       path: "/Quiz",
