@@ -210,12 +210,14 @@ export default function Home() {
             <Link href={"/dashboard"}><Button className="flex gap-2 p-3 w-full md:w-auto">
               Get Started <ArrowRight />
             </Button></Link>
+          <Link href={"https://youtu.be/ampOXgVJijs"}>
             <Button
               variant="outline"
               className="flex items-center mt-5 md:mt-0  gap-2  md:w-auto"
-            >
+              >
               <Video className=" fill-black" /> Watch Tutorial
             </Button>
+              </Link>
           </motion.div>
         </main>
       </div>
