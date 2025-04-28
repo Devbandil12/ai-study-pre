@@ -16,7 +16,7 @@ function Welcome() {
             className="w-28 transition-transform hover:scale-110"
           />
           <div className="pl-3">
-            <h2 className="text-3xl font-semibold text-primary">
+            <h2 className="text-3xl font-semibold text-blue-500">
               Hello, {user?.fullName}
             </h2>
             <h2 className="text-base font-light mt-2 text-gray-300">

@@ -10,9 +10,22 @@ export async function POST(req) {
     const chapterId=uuidv4()
     const { topics,courseid,chapterTitle } = await req.json();
     
-    const prompt = `Generate detailed notes for the following topics (HTML format, JSON response),also add example field, in content field only content dont add example in it  . Topics: ${topics.join(
-            ", "
-          )}`;
+    const prompt = `I am creating developer documentation for my project.
+
+For each topic I give you, I want the output to be structured like this in json formate only :
+{
+   documentation:{
+   - **Title:** (Use my topic name)
+- **Concept:** Write a 3–5 sentence explanation of the topic, like an official documentation page would.
+- **Example:** Include a clean code snippet that shows the basic usage of the topic.}
+}
+
+Write it formally but simply, in a way that beginners and intermediate developers can understand. Use code comments if necessary to explain parts of the snippet.
+
+Format the output in Markdown so I can paste it into my docs easily.
+
+Here your topics: ${topics.join(",")}
+`
           
           const Airesult = await GenerateCourse.sendMessage(prompt);
           const result = Airesult.response.text();
@@ -23,6 +36,7 @@ export async function POST(req) {
             notes: result,
             chapterTitle:chapterTitle
           });
+          console.log(result)
 
         
 

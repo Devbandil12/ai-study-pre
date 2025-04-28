@@ -8,7 +8,7 @@ export async function POST(req) {
 
    const res= await db.select().from(Chapters_Table).where(and((eq(Chapters_Table?.CourseID,courseid)),eq(Chapters_Table?.chapterTitle,chaptertitle)))
 
-    return NextResponse.json({data:res})
+    return NextResponse.json(res)
     
 }
 

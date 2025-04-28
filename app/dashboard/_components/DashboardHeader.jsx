@@ -12,7 +12,7 @@ function DashboardHeader({ option }) {
       {/* Logo Section */}
       <div
         className={`flex gap-2 items-center ${
-          option ? "md:block md:flex" : "md:hidden"
+          option ? "md:block " : "md:hidden"
         }`}
       >
         <img

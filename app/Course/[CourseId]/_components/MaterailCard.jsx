@@ -74,7 +74,12 @@ function MaterailCard({ data, studytype, course }) {
         <Button
           className="w-full mt-2"
           onClick={handleGenerate}
-          disabled={loading || refresh}
+          disabled={
+            loading ||
+            refresh ||
+            data?.name === "Question&Answer" ||
+            data?.name === "Matching Pairs"
+          }
         >
           {loading ? (
             <>
@@ -83,6 +88,9 @@ function MaterailCard({ data, studytype, course }) {
             </>
           ) : refresh ? (
             "Refresh the Page"
+          ) : data?.name === "Question&Answer" ||
+            data?.name === "Matching Pairs" ? (
+            "Comming soon.."
           ) : (
             "Generate"
           )}
