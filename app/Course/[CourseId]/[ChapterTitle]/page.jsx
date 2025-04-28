@@ -32,7 +32,7 @@ export default function Page() {
   const currentNote = notes?.[stepCount];
 
   return notes.length > 0 ? (
-    <div className="p-6 h-screen  bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900">
+    <div className="p-6  -mt-10    border-gray-400 border-[1px] rounded-3xl">
       {/* Stepper Navigation */}
       <div className="flex items-center gap-3 mb-8">
         {stepCount !== 0 && (
