@@ -51,7 +51,7 @@ function Page() {
   };
 
   return (
-    <div className="h-screen flex flex-col p-5 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="h-screen w-full flex flex-col p-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Header */}
       <header className="mb-10">
         <h2 className="text-3xl font-extrabold text-center mb-2">
@@ -91,7 +91,7 @@ function Page() {
             {/* Controls */}
             <div className="flex justify-between mt-4">
               <div onClick={handlePrevious}>
-                <CarouselPrevious className="hover:scale-110 transition-transform hover:bg-primary hover:text-white" />
+                <CarouselPrevious className="hover:scale-110 text-black transition-transform hover:bg-primary hover:text-white" />
               </div>
               <div onClick={handleNext}>
                 <CarouselNext className="hover:scale-110 transition-transform bg-primary text-white hover:bg-purple-700" />

@@ -20,7 +20,7 @@ function page() {
     setCourse(result.data.result);
   };
   return (
-    <div className={`h-auto`}>
+    <div>
       <div className="">
         <CourseIntroCard course={course} />
         <h2 className="mt-5 text-lg font-bold text-white">Study Materail 👀</h2>

@@ -32,78 +32,84 @@ export default function Page() {
   const currentNote = notes?.[stepCount];
 
   return notes.length > 0 ? (
-    <div className="p-6  -mt-10    border-gray-400 border-[1px] rounded-3xl">
-      {/* Stepper Navigation */}
-      <div className="flex items-center gap-3 mb-8">
-        {stepCount !== 0 && (
-          <Button variant="outline" onClick={() => setStepCount(stepCount - 1)}>
-            Previous
-          </Button>
-        )}
+    <div className="  min-h-screen ">
+      <div className="p-6  mt-10  bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900  border-gray-400 border-[1px] rounded-3xl">
+        {/* Stepper Navigation */}
+        <div className="flex items-center gap-3 mb-8">
+          {stepCount !== 0 && (
+            <Button
+              variant="outline"
+              onClick={() => setStepCount(stepCount - 1)}
+            >
+              Previous
+            </Button>
+          )}
 
-        {/* Progress Bar */}
-        {console.log(notes)}
-        <div className="flex items-center flex-1 gap-2">
-          {notes.map((_, index) => (
-            <div
-              key={index}
-              className={`rounded-full h-2 flex-1 ${
-                index <= stepCount ? "bg-primary" : "bg-gray-300"
-              }`}
-            />
-          ))}
+          {/* Progress Bar */}
+          {console.log(notes)}
+          <div className="flex items-center flex-1 gap-2">
+            {notes.map((_, index) => (
+              <div
+                key={index}
+                className={`rounded-full h-2 flex-1 ${
+                  index <= stepCount ? "bg-primary" : "bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+
+          {stepCount < notes.length - 1 && (
+            <Button onClick={() => setStepCount(stepCount + 1)}>Next</Button>
+          )}
         </div>
 
-        {stepCount < notes.length - 1 && (
-          <Button onClick={() => setStepCount(stepCount + 1)}>Next</Button>
-        )}
-      </div>
+        {/* Current Note */}
+        <div className="mt-5">
+          {currentNote ? (
+            <div key={stepCount}>
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-blue-500 mb-3 underline">
+                {currentNote.Title}
+              </h2>
 
-      {/* Current Note */}
-      <div className="mt-5">
-        {currentNote ? (
-          <div key={stepCount}>
-            {/* Title */}
-            <h2 className="text-2xl font-bold text-blue-500 mb-3 underline">
-              {currentNote.Title}
-            </h2>
+              {/* Concept */}
+              <div
+                className="text-slate-200 text-base mb-6"
+                dangerouslySetInnerHTML={{ __html: currentNote.Concept }}
+              />
 
-            {/* Concept */}
-            <div
-              className="text-slate-200 text-base mb-6"
-              dangerouslySetInnerHTML={{ __html: currentNote.Concept }}
-            />
-
-            {/* Example */}
-            {currentNote.Example && (
-              <div className="text-gray-700">
-                <h3 className="text-lg text-gray-100 font-semibold mb-2 flex items-center justify-between">
-                  Example
-                  <Copy
-                    className="cursor-pointer"
-                    onClick={() => {
-                      navigator.clipboard.writeText(
-                        cleanCode(currentNote.Example)
-                      );
-                    }}
-                  />
-                </h3>
-                <pre className="bg-gray-600 text-gray-300 p-4 rounded text-sm overflow-x-auto">
-                  <code>{cleanCode(currentNote.Example)}</code>
-                </pre>
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className="flex flex-col justify-center items-center mt-40 text-center">
-            <h2 className="text-2xl font-bold text-primary mb-2">
-              Thank you! 😀
-            </h2>
-            <p className="text-lg text-gray-300">
-              Hope you learned a lot. Let's play some games with your knowledge!
-            </p>
-          </div>
-        )}
+              {/* Example */}
+              {currentNote.Example && (
+                <div className="text-gray-700">
+                  <h3 className="text-lg text-gray-100 font-semibold mb-2 flex items-center justify-between">
+                    Example
+                    <Copy
+                      className="cursor-pointer"
+                      onClick={() => {
+                        navigator.clipboard.writeText(
+                          cleanCode(currentNote.Example)
+                        );
+                      }}
+                    />
+                  </h3>
+                  <pre className="bg-gray-600 text-gray-300 p-4 rounded text-sm overflow-x-auto">
+                    <code>{cleanCode(currentNote.Example)}</code>
+                  </pre>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="flex flex-col justify-center items-center mt-40 text-center">
+              <h2 className="text-2xl font-bold text-primary mb-2">
+                Thank you! 😀
+              </h2>
+              <p className="text-lg text-gray-300">
+                Hope you learned a lot. Let's play some games with your
+                knowledge!
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   ) : (

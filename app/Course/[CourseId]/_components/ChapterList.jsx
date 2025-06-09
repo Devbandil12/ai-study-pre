@@ -36,7 +36,10 @@ function ChapterList({ course }) {
           </div>
         ))
       ) : (
-        <p>No chapters available.</p>
+        <div className=" text-white text-xl h-screen flex items-center justify-center ">
+          {" "}
+          <p>No chapters available.</p>
+        </div>
       )}
     </div>
   );
