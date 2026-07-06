@@ -27,7 +27,7 @@
     "howler": "^2.2.4",
     "inngest": "^3.25.1",
     "lucide-react": "^0.460.0",
-    "next": "15.0.3",
+    "next": "^15.5.20",
     "react": "^18",
     "react-card-flip": "^1.2.3",
     "react-dom": "^18",
