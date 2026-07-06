@@ -29,14 +29,15 @@ Here your topics: ${topics.join(",")}
           
           const Airesult = await GenerateCourse.sendMessage(prompt);
           const result = Airesult.response.text();
+          const parsedResult = JSON.parse(result);
 
           await db.insert(Chapters_Table).values({
             chapterId: chapterId ,
             CourseID: courseid,
-            notes: result,
+            notes: parsedResult,
             chapterTitle:chapterTitle
           });
-          console.log(result)
+          console.log(parsedResult)
 
         
 

@@ -20,18 +20,26 @@ function page() {
     setCourse(result.data.result);
   };
   return (
-    <div>
-      <div className="">
-        <CourseIntroCard course={course} />
-        <h2 className="mt-5 text-lg font-bold text-white">Study Materail 👀</h2>
-        <div className="mt-3">
+    <div className="space-y-10">
+      <CourseIntroCard course={course} />
+
+      <section>
+        <p className="eyebrow mb-1">Practice</p>
+        <h2 className="text-lg font-bold tracking-tight text-white">
+          Study Material
+        </h2>
+        <div className="mt-4">
           <StudyMaterialSelection course={course} />
-          <h2 className="mt-2 font-bold text-xl text-white">Chapters</h2>
         </div>
-        <div>
-          <ChapterList course={course} />
-        </div>
-      </div>
+      </section>
+
+      <section>
+        <p className="eyebrow mb-1">Learn</p>
+        <h2 className="text-lg font-bold tracking-tight text-white">
+          Chapters
+        </h2>
+        <ChapterList course={course} />
+      </section>
     </div>
   );
 }

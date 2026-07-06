@@ -50,7 +50,7 @@ function StudyMaterialSelection({ course }) {
     setStudyTypeContent(res.data);
   };
   return studyTypeContent ? (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 ">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {materialList.map((materail, index) => {
         return (
           <MaterailCard
@@ -64,14 +64,9 @@ function StudyMaterialSelection({ course }) {
     </div>
   ) : (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 ">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[1, 2, 3, 4].map((val, ind) => {
-          return (
-            <div
-              key={ind}
-              className="w-40 m-2 h-48 bg-slate-300 animate-pulse rounded-2xl "
-            ></div>
-          );
+          return <div key={ind} className="skeleton h-56" />;
         })}
       </div>
     </>

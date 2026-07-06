@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import FlashCardItem from "./_components/FlashCardItem";
-import { Loader2 } from "lucide-react";
+import { Layers, Loader2 } from "lucide-react";
 
 function Page() {
   const { CourseId } = useParams();
@@ -51,13 +51,17 @@ function Page() {
   };
 
   return (
-    <div className="h-screen w-full flex flex-col p-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="flex min-h-[80vh] w-full flex-col">
       {/* Header */}
-      <header className="mb-10">
-        <h2 className="text-3xl font-extrabold text-center mb-2">
-          🚀 FlashCards
+      <header className="mb-10 text-center">
+        <span className="chip mb-4">
+          <Layers className="h-3.5 w-3.5 text-violet-400" />
+          Flashcards
+        </span>
+        <h2 className="text-3xl font-extrabold tracking-tight text-white">
+          Flip. Recall. <span className="text-gradient">Remember.</span>
         </h2>
-        <p className="text-center text-gray-400 max-w-md mx-auto">
+        <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
           Boost your memory with quick flashcards! Remember concepts faster and
           better. 🧠✨
         </p>
@@ -65,39 +69,50 @@ function Page() {
 
       {/* Loading State */}
       {isLoading ? (
-        <div className="flex flex-1 justify-center items-center">
-          <Loader2 className="animate-spin w-16 h-16 text-primary" />
+        <div className="flex flex-1 flex-col items-center justify-center gap-3 text-muted-foreground">
+          <Loader2 className="h-10 w-10 animate-spin text-violet-400" />
+          Loading flashcards…
         </div>
       ) : (
         // Flashcard Carousel
-        <div className="flex-1 flex flex-col justify-center items-center">
+        <div className="flex flex-1 flex-col items-center justify-center">
           <Carousel className="w-full max-w-xl">
             <CarouselContent className="p-4">
               {flipCardContent.length > 0 ? (
                 flipCardContent.map((card, index) => (
                   <CarouselItem key={index} className="flex justify-center">
-                    <FlashCardItem front={card.front} back={card.back} />
+                    <FlashCardItem
+                      front={card.front}
+                      back={card.back}
+                      index={index}
+                      total={flipCardContent.length}
+                    />
                   </CarouselItem>
                 ))
               ) : (
                 <CarouselItem>
-                  <div className="flex justify-center items-center w-72 h-52 bg-gray-700 rounded-lg border border-gray-600">
-                    <p className="text-gray-400">No FlashCards Available 😢</p>
+                  <div className="surface flex h-52 w-full items-center justify-center">
+                    <p className="text-sm text-muted-foreground">
+                      No FlashCards Available 😢
+                    </p>
                   </div>
                 </CarouselItem>
               )}
             </CarouselContent>
 
             {/* Controls */}
-            <div className="flex justify-between mt-4">
+            <div className="mt-6 flex justify-center gap-4">
               <div onClick={handlePrevious}>
-                <CarouselPrevious className="hover:scale-110 text-black transition-transform hover:bg-primary hover:text-white" />
+                <CarouselPrevious className="static h-11 w-11 translate-y-0 rounded-full border-white/10 bg-white/[0.04] text-zinc-200 transition-all hover:scale-105 hover:bg-white/[0.1] hover:text-white" />
               </div>
               <div onClick={handleNext}>
-                <CarouselNext className="hover:scale-110 transition-transform bg-primary text-white hover:bg-purple-700" />
+                <CarouselNext className="static h-11 w-11 translate-y-0 rounded-full border-none bg-gradient-to-r from-violet-600 to-indigo-600 text-white transition-all hover:scale-105 hover:from-violet-500 hover:to-indigo-500" />
               </div>
             </div>
           </Carousel>
+          <p className="mt-4 text-xs text-muted-foreground">
+            Tap a card to flip it
+          </p>
         </div>
       )}
     </div>

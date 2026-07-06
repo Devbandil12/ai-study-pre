@@ -27,18 +27,22 @@ function ChapterList({ course }) {
   };
 
   return (
-    <div className="mt-3">
-      {data?.map((val, ind) => console.log(val.chapterTitle))}
+    <div className="mt-4 space-y-3">
       {CHAPTERS.length > 0 ? (
         CHAPTERS.map((chapter, ind) => (
-          <div className="my-3" key={ind}>
-            <Chapters chapter={chapter} data={data} />
+          <div
+            className="animate-fade-up"
+            style={{ animationDelay: `${ind * 60}ms` }}
+            key={ind}
+          >
+            <Chapters chapter={chapter} data={data} index={ind} />
           </div>
         ))
       ) : (
-        <div className=" text-white text-xl h-screen flex items-center justify-center ">
-          {" "}
-          <p>No chapters available.</p>
+        <div className="surface flex items-center justify-center p-16 text-center">
+          <p className="text-sm text-muted-foreground">
+            No chapters available.
+          </p>
         </div>
       )}
     </div>

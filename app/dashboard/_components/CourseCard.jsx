@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import axios from "axios";
-import { RefreshCcw } from "lucide-react";
+import { ArrowUpRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
@@ -54,32 +54,53 @@ function CourseCard({ course }) {
     };
   }, []);
 
+  const chapterCount = course?.courseLayout?.chapters?.length;
+
   return (
-    <div className="p-3 bg-gray-800 rounded-lg shadow-lg transition-all hover:scale-105 hover:shadow-xl ">
-      <div>
-        {/* Course Header */}
-        <div className="flex justify-between gap-5 items-center mb-3">
-          <div className="flex justify-between items-center px-3">
-            <img src="/course.png" alt="Course" className="w-10 h-10" />
-          </div>
-          <h2 className="text-white text-xs p-1 bg-primary rounded-lg ">
-            22nd Dec/2024
-          </h2>
+    <div className="surface surface-hover group flex h-full flex-col p-5 shadow-card">
+      {/* Course Header */}
+      <div className="mb-4 flex items-start justify-between">
+        <div className="inline-flex rounded-xl border border-violet-500/20 bg-violet-500/10 p-2.5">
+          <img src="/course.png" alt="Course" className="h-8 w-8" />
         </div>
+        <div className="flex flex-wrap justify-end gap-1.5">
+          {course?.difficulty && (
+            <span className="chip capitalize">{course.difficulty.toLowerCase()}</span>
+          )}
+          {course?.studyType && (
+            <span className="chip capitalize text-violet-300">
+              {course.studyType}
+            </span>
+          )}
+        </div>
+      </div>
 
-        {/* Course Information */}
-        <h2 className="font-bold uppercase">{course.topic}</h2>
-        <h3 className="text-sm line-clamp-2 text-gray-400 mb-1">
-          {course.courseLayout.courseSummary}
-        </h3>
+      {/* Course Information */}
+      <h2 className="font-bold capitalize tracking-tight text-white">
+        {course.topic}
+      </h2>
+      <h3 className="mb-4 mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+        {course.courseLayout.courseSummary}
+      </h3>
 
-        {/* Progress Bar */}
-        <Progress value={progressBarVal} />
+      {/* Progress Bar */}
+      <div className="mt-auto">
+        <Progress value={progressBarVal} className="h-1.5 bg-white/[0.06]" />
 
         {/* Generate or View Button */}
-        <div className="flex justify-end mt-3">
+        <div className="mt-4 flex items-center justify-between">
+          <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <BookOpen className="h-3.5 w-3.5" />
+            {chapterCount ? `${chapterCount} chapters` : "Course"}
+          </span>
           <Link href={`/Course/${course?.CourseID}`}>
-            <Button>View</Button>
+            <Button
+              size="sm"
+              className="btn-gradient gap-1 rounded-lg px-4 font-semibold"
+            >
+              View
+              <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Button>
           </Link>
         </div>
       </div>

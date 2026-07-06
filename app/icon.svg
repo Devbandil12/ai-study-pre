@@ -9,17 +9,10 @@
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
   </defs>
-
-  <!-- gradient app tile -->
   <rect width="48" height="48" rx="12" fill="url(#tile)"/>
   <rect width="48" height="48" rx="12" fill="url(#shine)"/>
-  <rect x="0.5" y="0.5" width="47" height="47" rx="11.5" stroke="#FFFFFF" stroke-opacity="0.14"/>
-
-  <!-- open book -->
   <path d="M24 21.5 C20.6 19.2 15.9 18.7 11.5 20.1 C11.2 20.2 11 20.5 11 20.8 V33.2 C11 33.7 11.5 34 12 33.9 C16.2 32.8 20.7 33.3 24 35.5 Z" fill="#FFFFFF" fill-opacity="0.95"/>
   <path d="M24 21.5 C27.4 19.2 32.1 18.7 36.5 20.1 C36.8 20.2 37 20.5 37 20.8 V33.2 C37 33.7 36.5 34 36 33.9 C31.8 32.8 27.3 33.3 24 35.5 Z" fill="#FFFFFF" fill-opacity="0.72"/>
-
-  <!-- AI sparkle -->
   <path d="M24 6.5 C24.7 9.8 26.2 11.3 29.5 12 C26.2 12.7 24.7 14.2 24 17.5 C23.3 14.2 21.8 12.7 18.5 12 C21.8 11.3 23.3 9.8 24 6.5 Z" fill="#FFFFFF"/>
   <path d="M32 6.5 C32.35 8.1 33.1 8.85 34.7 9.2 C33.1 9.55 32.35 10.3 32 11.9 C31.65 10.3 30.9 9.55 29.3 9.2 C30.9 8.85 31.65 8.1 32 6.5 Z" fill="#FFFFFF" fill-opacity="0.85"/>
 </svg>

@@ -8,14 +8,6 @@ module.exports = {
   ],
   theme: {
   	extend: {
-		colors: {
-			softBlack: '#0d0d0d',  // Near black
-			charcoal: '#1a1a1a',  // Dark charcoal gray
-			ashGray: '#2a2a2a',   // Soft gray
-		  },
-		borderWidth: {
-			'custom-dash': '3px',
-		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -28,7 +20,7 @@ module.exports = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: '#305CDE',
+  				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
@@ -62,6 +54,30 @@ module.exports = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		boxShadow: {
+  			'glow-sm': '0 0 20px -5px rgb(124 58 237 / 0.35)',
+  			'glow': '0 0 45px -10px rgb(124 58 237 / 0.45)',
+  			'card': '0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 8px 30px -12px rgb(0 0 0 / 0.6)'
+  		},
+  		keyframes: {
+  			'fade-up': {
+  				from: { opacity: '0', transform: 'translateY(12px)' },
+  				to: { opacity: '1', transform: 'translateY(0)' }
+  			},
+  			'fade-in': {
+  				from: { opacity: '0' },
+  				to: { opacity: '1' }
+  			},
+  			float: {
+  				'0%, 100%': { transform: 'translateY(0)' },
+  				'50%': { transform: 'translateY(-8px)' }
+  			}
+  		},
+  		animation: {
+  			'fade-up': 'fade-up 0.5s ease-out both',
+  			'fade-in': 'fade-in 0.4s ease-out both',
+  			float: 'float 5s ease-in-out infinite'
   		}
   	}
   },
